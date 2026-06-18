@@ -1,32 +1,71 @@
-*{
+:root {
+    --primarybg: rgb(16, 16, 16);
+    --secondarycolor: rgb(240 240 240);
+    --logofont: "Fruktur";
+    --subfont: "Merriweather Sans", sans-serif;
+
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: aliceblue;
+    color: var(--secondarycolor);
+    font-family: var(--subfont);
+
 }
-body{
-    background-color: rgb(16, 16, 16);
+
+a {
+    text-decoration: none;
 }
-#maincontainer{
+
+body {
+    background-color: var(--primarybg);
+}
+
+#maincontainer {
     width: 80%;
-    margin: auto   ;
+    margin: auto;
 }
-header{
-    margin: 0.25rem 1rem;
-    border: 1px solid rgb(116, 116 ,116) ;
+
+header {
+    * {
+        color: var(--primarybg);
+    }
+
+    margin: 0.5rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem ;
-    border-radius: 1rem;
-    #logo{
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      z-index: 101;
-      img{
-        height: 2rem;
-      }
+    background-color: rgb(241, 241, 241);
 
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+
+    #logo {
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+        z-index: 101;
+
+        span {
+            font-family: var(--logofont);
+
+        }
+
+        img {
+            height: 2rem;
+            display: none;
+        }
+
+    }
+    .navi{
+        *{
+            margin: 0 2rem;
+        }
+    }
+    .socials{
+        *{
+            margin: 0 1rem;
+        }
     }
 }
