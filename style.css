@@ -1,139 +1,265 @@
 :root {
     --primarybg: rgb(16, 16, 16);
-    --secondarycolor: rgb(240 240 240);
+    --secondarycolor: rgb(240, 240, 240);
     --logofont: "Fruktur";
     --subfont: "Merriweather Sans", sans-serif;
-
 }
 
+/* 1. Reset & Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--secondarycolor);
-    font-family: var(--subfont);
-
-}
-
-a {
-    text-decoration: none;
 }
 
 body {
     background-color: var(--primarybg);
+    color: var(--secondarycolor);
+    font-family: var(--subfont);
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    /* INDUSTRY STANDARD BACKGROUND: Subtle tech grid + Soft ambient glows */
+    background-image: 
+        radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 15% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.004) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.004) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.75;
+    }
+}
+
+/* 2. Main Container */
 #maincontainer {
     width: 80%;
     margin: auto;
-    height: 200vh;
+    position: relative;
 }
 
+/* 3. Header Section (Perfectly Centered & Blurred Overlays) */
 header {
-    * {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    background-color: rgba(241, 241, 241, 0.95);
+    backdrop-filter: blur(12px); /* Content beautifully blurs as it passes underneath */
+    padding: 0.75rem 2rem;
+    border-radius: 50px; /* Fully rounded pill shape matches high-end UI patterns */
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+
+    /* Safe color override for header child elements */
+    a, span, div {
         color: var(--primarybg);
     }
 
-    margin: 0.5rem 0;
-    display: flex;
-    position: fixed;
-    width: 80%;
-    top: 0;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(241, 241, 241);
-
-    padding: 0.75rem 2rem;
-    border-radius: 1rem;
-
     #logo {
-        font-size: 1.25rem;
-        letter-spacing: 1px;
-        z-index: 101;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
         display: flex;
         align-items: center;
-        justify-content: center;
-
-        * {
-            margin: 0 0.25rem;
-        }
+        gap: 0.5rem;
 
         span {
             font-family: var(--logofont);
         }
 
         img {
-            height: 2rem;
+            height: 1.75rem;
+            width: auto;
         }
-
     }
 
     .navi {
-        * {
-            margin: 0 2rem;
-        }
+        display: flex;
+        gap: 2rem;
+        font-size: 1rem;
+        font-weight: 500;
     }
 
     .socials {
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 1.25rem;
 
         a {
-            margin: 0 1rem;
-            line-height: 0.75rem;
-        }
+            line-height: 0;
 
-        a {
             img {
                 height: 1.5rem;
-                width: min-content;
+                width: auto;
             }
         }
     }
 }
 
+/* 4. Hero Section */
 #hero {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    min-height: 80vh;
+    padding-top: 100px; /* Clears fixed header space */
+    gap: 4rem;
 
     .left {
-        width: 46%;
-        height: 100vh;
+        width: 50%;
         display: flex;
-        align-items: start;
+        align-items: flex-start;
         flex-direction: column;
         justify-content: center;
 
         .textsec {
             h2 {
                 font-size: 6rem;
+                line-height: 1.05;
+                font-weight: 800;
+                letter-spacing: -1px;
+                font-family: var(--logofont);
+                letter-spacing: 0.7rem;
             }
 
             h4 {
-                margin: 2rem 0rem;
+                margin: 1.5rem 0 2rem 0;
+                font-size: 1.05rem;
+                line-height: 1.6;
+                color: rgba(240, 240, 240, 0.7); /* Improved body text hierarchy readability */
+                font-weight: 400;
             }
         }
 
         .cta {
-            margin: 2rem 0;
             display: flex;
-            align-items: start;
+            gap: 1rem;
+
             button {
-                font-size: 1.25rem;
-                color: black;
-                margin: 0 1rem 0 0;
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--primarybg);
                 background-color: rgb(241, 241, 241);
-                padding: 0.75rem 2rem;
-                border-radius: 1rem;
+                padding: 0.85rem 2rem;
+                border-radius: 0.75rem;
+                border: none;
+                cursor: pointer;
+                transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
 
-
+                &:hover {
+                    transform: translateY(-2px);
+                    background-color: rgb(255, 255, 255);
+                }
+                
+                /* Outlined variant for your secondary button */
+                &:last-child {
+                    background-color: transparent;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    color: var(--secondarycolor);
+                    
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.05);
+                        border-color: rgba(255, 255, 255, 0.4);
+                    }
+                }
             }
         }
     }
 
     .right {
-        width: 50%;
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem; /* Separates multiple featured product containers evenly */
+
+        .spotlight {
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.08); /* Sophisticated dark border */
+            background-color: rgba(255, 255, 255, 0.02);
+
+            h2 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 1.25rem;
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .pritem {
+                background-color: rgb(241, 241, 241);
+                padding: 0.75rem 1rem;
+                margin: 0.75rem 0;
+                border-radius: 0.75rem;
+                color: var(--primarybg);
+                
+                /* FIXES THE SQUISHED LAYOUT IN SCREENSHOT */
+                display: flex;
+                align-items: center;
+                gap: 1rem; 
+
+                img {
+                    height: 2.5rem;
+                    width: 2.5rem;
+                    object-fit: cover;
+                    border-radius: 0.5rem;
+                    background-color: rgba(0, 0, 0, 0.05); /* Safe background placeholder */
+                }
+
+                /* Text container wrap to layout Title & Subtitle nicely */
+                .apptext {
+                    display: flex;
+                    flex-direction: column;
+                    
+                    h3 {
+                        font-weight: 700;
+                        font-size: 1rem;
+                    }
+                    div span {
+                        font-size: 0.8rem;
+                        opacity: 0.7;
+                        margin: 0 0.5rem 0 0;
+                    }
+                }
+            }
+        }
     }
 }
+#hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      width: clamp(300px, 60vw, 600px);
+      height: clamp(300px, 50vw, 600px);
+      background: radial-gradient(circle, rgba(246, 179, 92, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: -1;
+      filter: blur(50px);
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      width: clamp(300px, 60vw, 600px);
+      height: clamp(300px, 50vw, 600px);
+      background: radial-gradient(circle, rgba(246, 179, 92, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: -1;
+      filter: blur(50px);
+    }
+
