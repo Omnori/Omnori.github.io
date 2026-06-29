@@ -181,7 +181,7 @@ header {
     }
 
     .right {
-        width: 45%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -243,19 +243,19 @@ header {
 #hero::before {
       content: '';
       position: absolute;
-      top: 10%;
-      left: 20%;
+      top: 45%;
+      left: 00%;
       width: clamp(300px, 60vw, 600px);
       height: clamp(300px, 50vw, 600px);
       background: radial-gradient(circle, rgba(246, 179, 92, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
       z-index: -1;
       filter: blur(50px);
     }
-    #hero::before {
+    #hero::after {
       content: '';
       position: absolute;
       top: 20%;
-      left: 50%;
+      left: 60%;
       width: clamp(300px, 60vw, 600px);
       height: clamp(300px, 50vw, 600px);
       background: radial-gradient(circle, rgba(246, 179, 92, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
