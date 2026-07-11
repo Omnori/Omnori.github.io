@@ -4,8 +4,8 @@
   "description": "Relentless Product Lab building solutions for daily friction.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#050505",
-  "theme_color": "#818cf8",
+  "background_color": "#101010",
+  "theme_color": "#528F3D",
   "icons": [
     {
       "src": "buildinfinity8.png",

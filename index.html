@@ -32,7 +32,7 @@
   <link rel="shortcut icon" href="omnori.png">
   <link rel="apple-touch-icon" href="omnori.png">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#818cf8">
+  <meta name="theme-color" content="#528F3D">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -70,9 +70,9 @@
                 <span>Omnori</span>
             </a>
             <div class="navi">
-                <a href=""> Products </a>
-                <a href=""> Services</a>
-                <a href=""> Give Ideas </a>
+                <a href="#products"> Products </a>
+                <a href="#services"> Services</a>
+                <a href="#giveidea"> Give Ideas </a>
                 <a href=""> About</a>
 
             </div>
@@ -81,6 +81,11 @@
                 <a href=""><img src="https://img.icons8.com/?size=100&id=106567&format=png&color=000000" alt=""></a>
                 <a href=""><img src="https://img.icons8.com/?size=100&id=86982&format=png&color=000000" alt=""></a>
             </div>
+            <button id="navToggle" class="navtoggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </header>
 
         <div id="hero">
@@ -129,7 +134,7 @@
                 <div class="spotlight">
                     <div class="title">
                         <h2>Upcoming</h2>
-                        <a href="">Suggest Idea</a>
+                        <a href="#giveidea">Suggest Idea</a>
                     </div>
                     <div class="pritem">
                         <img class="appicon" src="" alt="">
@@ -286,11 +291,110 @@
 
         </div>
 
+        <div id="giveidea">
+            <div class="heading">
+                <h1>Give Us Your Idea</h1>
+                <p>Got a problem worth solving or an idea for our next product? Tell us about it and we'll take a
+                    look — every submission is read by a real person on the team.</p>
+            </div>
+            <form class="ideaform">
+                <div class="formrow">
+                    <div class="formgroup">
+                        <label for="ideaName">Name</label>
+                        <input type="text" id="ideaName" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="formgroup">
+                        <label for="ideaEmail">Email</label>
+                        <input type="email" id="ideaEmail" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <div class="formgroup">
+                    <label for="ideaTitle">Idea or Problem Title</label>
+                    <input type="text" id="ideaTitle" name="title" placeholder="A short name for your idea" required>
+                </div>
+                <div class="formgroup">
+                    <label for="ideaDetails">Tell us more</label>
+                    <textarea id="ideaDetails" name="details" rows="5"
+                        placeholder="Describe the problem you're facing or the idea you'd like us to build..."
+                        required></textarea>
+                </div>
+                <button type="submit" class="submitbtn">Submit Idea</button>
+                <p class="formnote">We read every submission. No spam, ever.</p>
+            </form>
+        </div>
+
     </div>
+
+    <footer>
+        <div class="footertop">
+            <div class="footerbrand">
+                <a class="brandlogo" href="#">
+                    <img src="logo/logo.png" alt="Omnori Logo">
+                    <span>Omnori</span>
+                </a>
+                <p>Growth, Lead By Technology. A relentless product lab building solutions for daily friction —
+                    prototyped rapidly, shipped continuously.</p>
+                <div class="socials">
+                    <a href=""><img src="https://img.icons8.com/?size=100&id=85140&format=png&color=f1f1f1" alt="Twitter / X"></a>
+                    <a href=""><img src="https://img.icons8.com/?size=100&id=106567&format=png&color=f1f1f1" alt="LinkedIn"></a>
+                    <a href=""><img src="https://img.icons8.com/?size=100&id=86982&format=png&color=f1f1f1" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footerlinks">
+                <div class="linkcol">
+                    <h4>Explore</h4>
+                    <a href="#products">Products</a>
+                    <a href="#services">Services</a>
+                    <a href="#giveidea">Give Idea</a>
+                </div>
+                <div class="linkcol">
+                    <h4>Company</h4>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="mailto:buildinfinity8@gmail.com">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footerbottom">
+            <p>&copy; 2026 Omnori. All rights reserved.</p>
+            <p>Built by a relentless product lab.</p>
+        </div>
+    </footer>
 </body>
 <script>
+    const ideaForm = document.querySelector('.ideaform')
 
+    if (ideaForm) {
+        ideaForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const note = ideaForm.querySelector('.formnote')
+            ideaForm.reset()
+            if (note) note.textContent = "Thanks — we've received your idea!"
+        })
+    }
 
+    const navToggle = document.getElementById('navToggle')
+    const navi = document.querySelector('header .navi')
+
+    if (navToggle && navi) {
+        const closeNav = () => {
+            navi.classList.remove('open')
+            navToggle.classList.remove('open')
+            navToggle.setAttribute('aria-expanded', 'false')
+        }
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navi.classList.toggle('open')
+            navToggle.classList.toggle('open', isOpen)
+            navToggle.setAttribute('aria-expanded', String(isOpen))
+        })
+
+        navi.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav))
+
+        document.addEventListener('click', (e) => {
+            if (!navi.classList.contains('open')) return
+            if (!navi.contains(e.target) && !navToggle.contains(e.target)) closeNav()
+        })
+    }
 </script>
 
 </html>
