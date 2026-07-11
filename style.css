@@ -63,6 +63,15 @@ html {
     scroll-margin-top: 7rem;
 }
 
+/* Shared section-heading look (Products / Services / Give Idea) */
+.heading {
+    text-align: center;
+
+    h1 {
+        font-family: var(--logofont);
+    }
+}
+
 /* Large displays / TVs: scale the whole rem-based layout up a notch for
    far-viewing-distance readability, and give the capped container a bit
    more room instead of leaving it stranded in empty space. */
@@ -237,7 +246,7 @@ header {
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     min-height: 80vh;
     padding-top: 100px;
     /* Clears fixed header space */
@@ -464,7 +473,7 @@ header {
     min-height: 70vh;
     gap: 4rem;
     margin: 5rem 0 0 0;
-        padding: 0 2rem;
+    padding: 0 2rem;
 
 
     .heading {
@@ -609,20 +618,20 @@ header {
 
     .heading {
         p {
-            margin: 2rem 0 0 0;
+            margin: 2rem auto 0;
             max-width: 55rem;
             font-weight: 300;
         }
     }
 
     .servitemcont {
-  margin: 2rem auto;
-    width: 90%;
-    padding: 2rem 4rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 30px;
+        margin: 2rem auto;
+        width: 90%;
+        padding: 2rem 4rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 30px;
 
         .servitem {
             margin: 0rem auto;
@@ -642,15 +651,18 @@ header {
             &:hover {
                 border-color: rgba(var(--accentgreen-rgb), 0.45);
             }
-            .servicon{
+
+            .servicon {
                 height: 7rem;
                 width: 7rem;
                 background-color: rgba(0, 0, 0, 0.386);
                 border-radius: 1rem;
             }
-            .context{
+
+            .context {
                 text-align: center;
-                h3{
+
+                h3 {
                     margin: 1rem 0 0.5rem;
                     font-size: 1.5rem;
                 }
@@ -687,12 +699,6 @@ header {
     padding: 0 2rem;
 
     .heading {
-        text-align: center;
-
-        h1 {
-            font-family: var(--logofont);
-        }
-
         p {
             margin: 1.25rem auto 0;
             max-width: 40rem;
