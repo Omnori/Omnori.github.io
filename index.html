@@ -64,7 +64,7 @@
 <body>
     <div id="maincontainer">
         <header>
-            <a id="logo">
+            <a id="logo" href="#">
                 <img src="logo/logo.png" alt="Omnori Logo">
                 <span>Omnori</span>
             </a>
@@ -72,13 +72,13 @@
                 <a href="#products"> Products </a>
                 <a href="#services"> Services</a>
                 <a href="#giveidea"> Give Ideas </a>
-                <a href=""> About</a>
+                <a href="#"> About</a>
 
             </div>
             <div class="socials">
-                <a href=""><img src="https://img.icons8.com/?size=100&id=85140&format=png&color=000000" alt=""></a>
-                <a href=""><img src="https://img.icons8.com/?size=100&id=106567&format=png&color=000000" alt=""></a>
-                <a href=""><img src="https://img.icons8.com/?size=100&id=86982&format=png&color=000000" alt=""></a>
+                <a href="#"><img src="https://img.icons8.com/?size=100&id=85140&format=png&color=000000" alt=""></a>
+                <a href="#"><img src="https://img.icons8.com/?size=100&id=106567&format=png&color=000000" alt=""></a>
+                <a href="#"><img src="https://img.icons8.com/?size=100&id=86982&format=png&color=000000" alt=""></a>
             </div>
             <button id="navToggle" class="navtoggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="cta">
-                    <button>View Products</button><button>Explore Services</button>
+                    <button id="ctaProducts">View Products</button><button id="ctaServices">Explore Services</button>
                 </div>
 
             </div>
@@ -105,7 +105,7 @@
                 <div class="spotlight">
                     <div class="title">
                         <h2>Featured</h2>
-                        <a href="">Explore</a>
+                        <a href="#products">Explore</a>
                     </div>
                     <div class="pritem">
                         <img class="appicon" src="logo/logo-sm.png" alt="">
@@ -114,7 +114,7 @@
                             <div class="tags">
                                 <span>100+</span>
                                 <span>Aside</span>
-                                <span>Producvity</span>
+                                <span>Productivity</span>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                             <div class="tags">
                                 <span>100+</span>
                                 <span>Aside</span>
-                                <span>Producvity</span>
+                                <span>Productivity</span>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                             <div class="tags">
                                 <span>100+</span>
                                 <span>Aside</span>
-                                <span>Producvity</span>
+                                <span>Productivity</span>
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                             <div class="tags">
                                 <span>100+</span>
                                 <span>Aside</span>
-                                <span>Producvity</span>
+                                <span>Productivity</span>
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
         <div id="products">
             <div class="heading">
                 <h1>Our Products</h1>
-                <div class="tags"><button>Lattest</button> <button>Top</button></div>
+                <div class="tags"><button>Latest</button> <button>Top</button></div>
             </div>
             <div class="itemlist">
                 <div class="item">
@@ -216,7 +216,7 @@
                 </div>
             </div>
             <div class="moresec">
-                <a href="" class="viewmore"> View all <img
+                <a href="#products" class="viewmore"> View all <img
                         src="https://img.icons8.com/?size=100&id=85123&format=png&color=f1f1f1" alt=""></a>
             </div>
         </div>
@@ -334,9 +334,9 @@
                 <p>Growth, Lead By Technology. A relentless product lab building solutions for daily friction —
                     prototyped rapidly, shipped continuously.</p>
                 <div class="socials">
-                    <a href=""><img src="https://img.icons8.com/?size=100&id=85140&format=png&color=f1f1f1" alt="Twitter / X"></a>
-                    <a href=""><img src="https://img.icons8.com/?size=100&id=106567&format=png&color=f1f1f1" alt="LinkedIn"></a>
-                    <a href=""><img src="https://img.icons8.com/?size=100&id=86982&format=png&color=f1f1f1" alt="Instagram"></a>
+                    <a href="#"><img src="https://img.icons8.com/?size=100&id=85140&format=png&color=f1f1f1" alt="Twitter / X"></a>
+                    <a href="#"><img src="https://img.icons8.com/?size=100&id=106567&format=png&color=f1f1f1" alt="LinkedIn"></a>
+                    <a href="#"><img src="https://img.icons8.com/?size=100&id=86982&format=png&color=f1f1f1" alt="Instagram"></a>
                 </div>
             </div>
             <div class="footerlinks">
@@ -349,7 +349,7 @@
                 <div class="linkcol">
                     <h4>Company</h4>
                     <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="mailto:buildinfinity8@gmail.com">Contact</a>
+                    <a href="mailto:omnori.tech@gmail.com">Contact</a>
                 </div>
             </div>
         </div>
@@ -360,6 +360,13 @@
     </footer>
 </body>
 <script>
+    document.getElementById('ctaProducts')?.addEventListener('click', () => {
+        document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })
+    })
+    document.getElementById('ctaServices')?.addEventListener('click', () => {
+        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
+    })
+
     const ideaForm = document.querySelector('.ideaform')
 
     if (ideaForm) {
