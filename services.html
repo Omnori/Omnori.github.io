@@ -37,33 +37,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap');
     </style>
     <link rel="stylesheet" href="style.css">
+    <script defer src="autoload/autoload.js"></script>
 
 </head>
 
 <body>
     <div id="maincontainer">
-        <header>
-            <a id="logo" href="index.html">
-                <img src="logo/logo.png" alt="Omnori Logo">
-                <span>Omnori</span>
-            </a>
-            <div class="navi">
-                <a href="index.html#products"> Products </a>
-                <a href="services.html"> Services</a>
-                <a href="index.html#giveidea"> Give Ideas </a>
-                <a href="index.html"> About</a>
-            </div>
-            <div class="socials">
-                <a href="#"><img src="https://img.icons8.com/?size=100&id=85140&format=png&color=000000" alt=""></a>
-                <a href="#"><img src="https://img.icons8.com/?size=100&id=106567&format=png&color=000000" alt=""></a>
-                <a href="#"><img src="https://img.icons8.com/?size=100&id=86982&format=png&color=000000" alt=""></a>
-            </div>
-            <button id="navToggle" class="navtoggle" aria-label="Toggle navigation" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </header>
+        <header></header>
 
         <section id="serviceshero">
             <h1>Services Built to Move Fast</h1>
@@ -155,65 +135,7 @@
 
     </div>
 
-    <footer>
-        <div class="footertop">
-            <div class="footerbrand">
-                <a class="brandlogo" href="index.html">
-                    <img src="logo/logo.png" alt="Omnori Logo">
-                    <span>Omnori</span>
-                </a>
-                <p>Growth, Lead By Technology. A relentless product lab building solutions for daily friction —
-                    prototyped rapidly, shipped continuously.</p>
-                <div class="socials">
-                    <a href="#"><img src="https://img.icons8.com/?size=100&id=85140&format=png&color=f1f1f1" alt="Twitter / X"></a>
-                    <a href="#"><img src="https://img.icons8.com/?size=100&id=106567&format=png&color=f1f1f1" alt="LinkedIn"></a>
-                    <a href="#"><img src="https://img.icons8.com/?size=100&id=86982&format=png&color=f1f1f1" alt="Instagram"></a>
-                </div>
-            </div>
-            <div class="footerlinks">
-                <div class="linkcol">
-                    <h4>Explore</h4>
-                    <a href="index.html#products">Products</a>
-                    <a href="services.html">Services</a>
-                    <a href="index.html#giveidea">Give Idea</a>
-                </div>
-                <div class="linkcol">
-                    <h4>Company</h4>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="mailto:omnori.tech@gmail.com">Contact</a>
-                </div>
-            </div>
-        </div>
-        <div class="footerbottom">
-            <p>&copy; 2026 Omnori. All rights reserved.</p>
-            <p>Built by a relentless product lab.</p>
-        </div>
-    </footer>
+    <footer></footer>
 </body>
-<script>
-    const navToggle = document.getElementById('navToggle')
-    const navi = document.querySelector('header .navi')
-
-    if (navToggle && navi) {
-        const closeNav = () => {
-            navi.classList.remove('open')
-            navToggle.classList.remove('open')
-            navToggle.setAttribute('aria-expanded', 'false')
-        }
-
-        navToggle.addEventListener('click', () => {
-            const isOpen = navi.classList.toggle('open')
-            navToggle.classList.toggle('open', isOpen)
-            navToggle.setAttribute('aria-expanded', String(isOpen))
-        })
-
-        navi.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav))
-
-        document.addEventListener('click', (e) => {
-            if (!navi.classList.contains('open')) return
-            if (!navi.contains(e.target) && !navToggle.contains(e.target)) closeNav()
-        })
-    }
-</script>
 
 </html>
