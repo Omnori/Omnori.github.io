@@ -892,6 +892,47 @@ footer {
     filter: blur(50px);
 }
 
+#servicepitch {
+    margin: 5rem auto 0;
+    padding: 0 2rem;
+    max-width: 42rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+    p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: rgba(240, 240, 240, 0.7);
+        margin-bottom: 1.25rem;
+    }
+
+    strong {
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .ctabtn {
+        display: inline-block;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--white);
+        background-color: var(--accentgreen);
+        padding: 0.85rem 2rem;
+        border-radius: 0.75rem;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+
+        &:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            background-color: var(--accentgreen-hover);
+        }
+    }
+}
+
 #serviceoffer {
     margin: 5rem 0 0 0;
     padding: 0 2rem;
