@@ -638,95 +638,96 @@ header {
             color: rgba(240, 240, 240, 0.7);
         }
     }
+}
 
-    .ideaform {
-        max-width: 42rem;
-        margin: 2.5rem auto 0;
-        padding: 2.5rem;
-        border-radius: 1.25rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background-color: rgba(255, 255, 255, 0.02);
+/* Shared lead-capture form look (homepage Give Idea form, services consult form) */
+.ideaform {
+    max-width: 42rem;
+    margin: 2.5rem auto 0;
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .formrow {
         display: flex;
-        flex-direction: column;
         gap: 1.5rem;
 
-        .formrow {
-            display: flex;
-            gap: 1.5rem;
-
-            @media (max-width: 640px) {
-                flex-direction: column;
-            }
-        }
-
-        .formgroup {
-            flex: 1;
-            display: flex;
+        @media (max-width: 640px) {
             flex-direction: column;
-            gap: 0.5rem;
+        }
+    }
 
-            label {
-                font-size: 0.85rem;
-                font-weight: 500;
-                color: rgba(240, 240, 240, 0.7);
-            }
+    .formgroup {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
 
-            input,
-            textarea {
-                font-family: var(--subfont);
-                font-size: 0.95rem;
-                color: var(--secondarycolor);
-                background-color: rgba(255, 255, 255, 0.03);
-                border: 1px solid rgba(255, 255, 255, 0.08);
-                border-radius: 0.75rem;
-                padding: 0.85rem 1rem;
-                outline: none;
-                transition: border-color 0.2s ease, background-color 0.2s ease;
-
-                &:focus {
-                    border-color: var(--accentgreen);
-                    background-color: rgba(255, 255, 255, 0.05);
-                    box-shadow: 0 0 0 3px rgba(var(--accentgreen-rgb), 0.15);
-                }
-
-                &::placeholder {
-                    color: rgba(240, 240, 240, 0.35);
-                }
-            }
-
-            textarea {
-                resize: vertical;
-                min-height: 8rem;
-            }
+        label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(240, 240, 240, 0.7);
         }
 
-        .submitbtn {
-            align-self: flex-start;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--white);
-            background-color: var(--accentgreen);
-            padding: 0.85rem 2rem;
+        input,
+        textarea {
+            font-family: var(--subfont);
+            font-size: 0.95rem;
+            color: var(--secondarycolor);
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+            padding: 0.85rem 1rem;
+            outline: none;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
 
-            &:hover {
-                transform: translateY(-2px);
-                background-color: var(--accentgreen-hover);
+            &:focus {
+                border-color: var(--accentgreen);
+                background-color: rgba(255, 255, 255, 0.05);
+                box-shadow: 0 0 0 3px rgba(var(--accentgreen-rgb), 0.15);
+            }
+
+            &::placeholder {
+                color: rgba(240, 240, 240, 0.35);
             }
         }
 
-        .formnote {
-            font-size: 0.8rem;
-            color: rgba(240, 240, 240, 0.5);
+        textarea {
+            resize: vertical;
+            min-height: 8rem;
         }
+    }
+
+    .submitbtn {
+        align-self: flex-start;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--white);
+        background-color: var(--accentgreen);
+        padding: 0.85rem 2rem;
+        border-radius: 0.75rem;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            background-color: var(--accentgreen-hover);
+        }
+    }
+
+    .formnote {
+        font-size: 0.8rem;
+        color: rgba(240, 240, 240, 0.5);
     }
 }
 
 @media (max-width: 640px) {
-    #giveidea .ideaform {
+    .ideaform {
         padding: 1.5rem;
     }
 }
